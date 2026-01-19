@@ -476,3 +476,8 @@ const alphabets = "abcdefghijklmnopqrstuvwxyz";
 [...alphabets].forEach((letter) => console.log(letter));
 
 // --------------------------------------------------------------------------------
+// STRING METHODS SUMMARY:
+
+// REGEX SUMMARY:
+
+// --------------------------------------------------------------------------------
