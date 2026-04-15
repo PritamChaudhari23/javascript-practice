@@ -115,10 +115,7 @@ function flattenObject(obj, parentKey = "", result = {}) {
     for (let key in obj) {
         const newKey = parentKey ? `${parentKey}.${key}` : key;
 
-        if (
-            typeof obj[key] === "object" &&
-            obj[key] !== null
-        ) {
+        if (typeof obj[key] === "object" && obj[key] !== null) {
             flattenObject(obj[key], newKey, result);
         } else {
             result[newKey] = obj[key];
@@ -213,7 +210,7 @@ function addEven(num) {
     let evenSum = 0;
     while (num > 0) {
         let digit = num % 10;
-        if(digit % 2 === 0) {
+        if (digit % 2 === 0) {
             evenSum += digit
         }
         num = Math.floor(num / 10);
@@ -244,6 +241,6 @@ function secondHighest(arr) {
     return secondHighest;
 }
 
-console.log(secondHighest([10, 5, 8, 20, 15])); 
+console.log(secondHighest([10, 5, 8, 20, 15]));
 // ---------------------------------------------------------------------------------------------------
 
