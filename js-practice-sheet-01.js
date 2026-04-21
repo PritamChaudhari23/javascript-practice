@@ -24,25 +24,10 @@ console.log(checkPalindrome('RACECAR'))
 // 3. Find duplicate items from an array
 const original = [21, 3, 4, 56, 4, 16, 21, 43];
 function findDuplicates(arr) {
-    let duplicates = [];
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[i] === arr[j]) {
-                // Check if already stored
-                let alreadyExists = false;
-                for (let k = 0; k < duplicates.length; k++) {
-                    if (duplicates[k] === arr[i]) {
-                        alreadyExists = true;
-                        break;
-                    }
-                }
-                if (!alreadyExists) {
-                    duplicates.push(arr[i]);
-                }
-            }
-        }
-    }
-    return duplicates;
+    const seen = new Set();
+    const duplicates = new Set();
+    arr.forEach(num => seen.has(num) ? duplicates.add(num) : seen.add(num));
+    return [...duplicates];
 }
 console.log(findDuplicates(original));
 // ---------------------------------------------------------------------------------------------------
@@ -243,4 +228,30 @@ function secondHighest(arr) {
 
 console.log(secondHighest([10, 5, 8, 20, 15]));
 // ---------------------------------------------------------------------------------------------------
+// 13. Closure
+function outer() {
+    let count = 0;
+    return function inner() {
+        count++;
+        console.log(count)
+    }
+}
 
+const counter = outer()
+counter()
+counter()
+counter()
+// ---------------------------------------------------------------------------------------------------
+// 14. Event loop
+console.log(1); // synchronous code
+
+setTimeout(() => {
+    console.log(2) // macrotask queue
+}, 0);
+
+Promise.resolve().then(() => {
+    console.log(3) // microtask queue
+});
+
+console.log(4); // synchronous code
+// ---------------------------------------------------------------------------------------------------
