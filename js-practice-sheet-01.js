@@ -202,6 +202,7 @@ function addEven(num) {
     }
     console.log(Math.floor(evenSum))
 }
+// Use % 10 to get the face value and / 10 to get place value. For example, 123 % 10 gives 3 and 123 / 10 gives 12.3 (which can be floored to 12).
 // ---------------------------------------------------------------------------------------------------
 // 12. Find second highest element in array
 function secondHighest(arr) {
